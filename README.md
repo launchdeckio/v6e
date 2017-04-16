@@ -25,3 +25,4 @@ validate({password: 'hunter2'});
 
 - Fluent async support
 - Implement more built-in rules
+- Add "strict" mode where errors will also be raised for fields that aren't explicitly specified in the ruleset.
