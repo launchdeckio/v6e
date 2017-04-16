@@ -1,18 +1,20 @@
 const validate = require('./../lib');
 
-const {factory} = validate;
+const {rules, factory} = validate;
+
+const {required} = rules;
 
 it('returns an object of errors for values that did not pass validation', () => {
 
     let rules = {
-        username: [[u => !!u, 'Must provide a username']],
+        username: [required()],
         password: [
             [p => !!p, 'Must provide a password'],
             [p => p.length >= 8, 'Password must be at least 8 characters long']
         ]
     };
 
-    expect(validate(rules, {})).toEqual({username: 'Must provide a username', password: 'Must provide a password'});
+    expect(validate(rules, {})).toEqual({username: 'This field is required.', password: 'Must provide a password'});
 
     expect(validate(rules, {username: 'joopbarrie', password: 'hunter222'})).toEqual({});
 
