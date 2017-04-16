@@ -1,8 +1,6 @@
 const validate = require('./../lib');
 
-const {rules, factory} = validate;
-
-const {required} = rules;
+const {rules: {required}, factory} = validate;
 
 it('returns an object of errors for values that did not pass validation', () => {
 
