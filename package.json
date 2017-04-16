@@ -1,0 +1,19 @@
+{
+  "name": "v6e",
+  "version": "0.0.1",
+  "description": "Isomorphic functional validation",
+  "main": "index.js",
+  "author": "JM Versteeg <janmerijnversteeg@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "pretest": "eslint lib",
+    "test": "jest"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "jest": "^19.0.2"
+  }
+}
