@@ -1,24 +1,24 @@
 'use strict';
 
-const {size} = require('lodash');
+const {isString} = require('lodash');
 
 /**
- * "Length" rule
+ * String "length" rule
+ *
  * @param min
  * @param max
  * @param is
  * @param minError
  * @param maxError
  * @param isError
- * @returns {function}
  */
 module.exports = ({
                       min = null,
                       max = null,
                       is = null,
-                      minError = min => `Must be at least ${min} characters long`,
-                      maxError = max => `Can't be more than ${max} characters long`,
-                      isError = len => `Must be exactly ${len} characters long`,
+                      minError = min => `Must be at least ${min} characters long.`,
+                      maxError = max => `Can't be more than ${max} characters long.`,
+                      isError = len => `Must be exactly ${len} characters long.`,
                   } = {}) => {
 
     if (is && (min || max))
@@ -28,7 +28,8 @@ module.exports = ({
         throw new TypeError('"min" cannot be higher than "max" on the "length" rule');
 
     return val => {
-        const length = size(val);
+        if (!isString(val)) return 'Expected a string.';
+        const length = val.length;
         if (is && length !== is) return isError(is);
         if (min && length < min) return minError(min);
         if (max && length > max) return maxError(max);

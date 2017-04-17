@@ -8,5 +8,8 @@ const {includes} = require('lodash');
  * @param {String[]} values
  * @param {Function} error
  */
-module.exports = (values, error = (values => `Cannot be one of: ${values.join(', ')}`)) =>
+module.exports = ({
+                      values,
+                      error = (values => `Cannot be one of: ${values.join(', ')}.`)
+                  } = {}) =>
     value => !includes(values, value) ? null : error(values);

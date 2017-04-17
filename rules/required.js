@@ -5,4 +5,4 @@
  *
  * @param {String} [error = "Required"] Error message
  */
-module.exports = (error = 'This field is required.') => val => !!val ? null : error;
+module.exports = ({error = 'This field is required.'} = {}) => val => !!val ? null : error;
