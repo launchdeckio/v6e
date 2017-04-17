@@ -1,13 +1,15 @@
 'use strict';
 
-const validate  = require('./lib/validate');
-const validator = require('./lib/validator');
-const all       = require('./lib/all');
-const rules     = require('./rules');
+const validate = require('./lib/validate');
 
-validate.rules     = rules;
-validate.all       = all;
-validate.validator = validator;
-validate.validate  = validate;
+validate.validate = validate;
+
+validate.validator = require('./lib/util/validator');
+validate.shake     = require('./lib/util/shake');
+validate.flatten   = require('./lib/util/flatten');
+validate.all       = require('./lib/all');
+validate.or        = require('./lib/or');
+validate.cond      = require('./lib/cond');
+validate.rules     = require('./rules');
 
 module.exports = validate;
