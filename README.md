@@ -90,6 +90,7 @@ validate(input).then(shake).then(flatten).then(console.log);
 - Schemas should be declarative, readable and embeddable. 
 - Asynchronous rules should be supported by default and fully intermixable with synchronous rules.
 - The purely functional nature encourages use of higher-order validators rather than some vaguely defined convention.
+- Higher-order validators allow you to write infinitely complex validation logic
 
 #### Why no field names in the validation errors?
 
