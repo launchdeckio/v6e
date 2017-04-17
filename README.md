@@ -55,11 +55,12 @@ const userSchema = {
     ]),
 };
 
-const validate = validator(userSchema);
+const validate = validator(userSchema, {strict: true});
 
 const input = {
     username: 'sgtlambda',
     password: 'hunter2',
+    dropTable: true,
     hobbies:  [{
         name: 'nitpicking',
     }],
@@ -76,9 +77,10 @@ const input = {
     }]
 };
 
-validate(input).then(shake).then(flatten).then(console.log);
+validate(input).then(flatten).then(console.log);
 
 // { 
+//   'dropTable': 'Illegal attribute.',
 //   'password': 'Must be at least 8 characters long',
 //   'photos.0.resolution': 'Cat photos must be hi-res.',
 //   'photos.1.fileName': 'Please upload a jpg or png.' 

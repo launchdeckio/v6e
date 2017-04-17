@@ -1,9 +1,9 @@
 const {
-    validator,
-    logic: {all, cond},
-    util:  {shake, flatten},
-    rules: {required, length, withIn, format},
-} = require('.');
+          validator,
+          logic: {all, cond},
+          util:  {flatten},
+          rules: {required, length, withIn, format},
+      } = require('.');
 
 const hobbySchema = {
     name: required(),
@@ -49,11 +49,12 @@ const userSchema = {
     ]),
 };
 
-const validate = validator(userSchema);
+const validate = validator(userSchema, {strict: true});
 
 const input = {
     username: 'sgtlambda',
     password: 'hunter2',
+    dropTable: true,
     hobbies:  [{
         name: 'nitpicking',
     }],
@@ -70,4 +71,4 @@ const input = {
     }]
 };
 
-validate(input).then(shake).then(flatten).then(console.log);
+validate(input).then(flatten).then(console.log);
