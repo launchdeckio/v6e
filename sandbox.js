@@ -20,19 +20,21 @@ const photoSchema = {
     }),
 };
 
+const passwordConstraint = all([
+    required(),
+    length({min: 8}),
+    all([
+        format({pattern: /\d/}),
+        format({pattern: /[a-z]/}),
+        format({pattern: /[A-Z]/}),
+    ], {error: 'Should contain at least one digit, one lowercase letter and one uppercase letter.'}),
+]);
+
 const userSchema = {
 
     username: required(),
 
-    password: all([
-        required(),
-        length({min: 8}),
-        all([
-            format({pattern: /\d/}),
-            format({pattern: /[a-z]/}),
-            format({pattern: /[A-Z]/}),
-        ], {error: 'Should contain at least one digit, one lowercase letter and one uppercase letter.'}),
-    ]),
+    password: passwordConstraint,
 
     hobbies: [hobbySchema],
 
