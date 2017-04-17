@@ -19,6 +19,7 @@ const userSchema = {
             format({pattern: /[A-Z]/}),
         ], {error: 'Should contain at least one digit, one lowercase letter and one uppercase letter.'}),
     ]),
+    
 };
 
 validate(userSchema, {username: 'sgtlambda', password: 'hunter2'}).then(console.log);
@@ -34,9 +35,11 @@ validate(userSchema, {username: 'sgtlambda', password: 'hunter2'}).then(console.
 - Asynchronous rules should be supported by default and fully intermixable with synchronous rules.
 - The purely functional nature encourages use of higher-order validators rather than some vaguely defined convention.
 
+#### Why no field names in the validation errors?
+
+- The errors object is a collection of `field: error` mappings, this is actually more useful for APIs.
+- The absence of field names within the messages themselves encourages UI design such that the error messages are placed above or underneath the actual field, as it should be anyways.
+
 ### Todo
 
-- Implement more built-in rules
-  - Length
-  - Format / regex
 - Add "strict" mode where errors will also be raised for fields that aren't explicitly specified in the ruleset.
