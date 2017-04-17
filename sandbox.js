@@ -1,9 +1,9 @@
 const {
-          validate, all, cond, shake, flatten,
+          validator, all, cond, shake, flatten,
           rules: {required, length, withIn, format}
       } = require('.');
 
-const photoSchema               = {
+const photoSchema = {
     fileName:   format({
         pattern: /\.(jpe?g|png)$/i,
         error:   'Please upload a jpg or png.',
@@ -39,6 +39,8 @@ const userSchema = {
     ]),
 };
 
+const validate = validator(userSchema);
+
 const input = {
     username: 'sgtlambda',
     password: 'hunter2',
@@ -55,4 +57,4 @@ const input = {
     }]
 };
 
-validate(userSchema, input).then(shake).then(flatten).then(console.log);
+validate(input).then(shake).then(flatten).then(console.log);

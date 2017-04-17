@@ -9,7 +9,7 @@ const {
           rules: {required, length, withIn, format}
       } = require('v6e');
 
-const photoSchema               = {
+const photoSchema = {
     fileName:   format({
         pattern: /\.(jpe?g|png)$/i,
         error:   'Please upload a jpg or png.',
