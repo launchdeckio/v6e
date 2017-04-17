@@ -2,6 +2,17 @@
 
 > Isomorphic functional validation
 
+[![Build Status][travis-image]][travis-url]
+[![NPM Version][npm-image]][npm-url]
+
+### Install
+
+```bash
+$ npm install v6e
+```
+
+### Example
+
 ```js
 
 const {
@@ -100,3 +111,22 @@ validate(input).then(flatten).then(console.log);
 
 - The errors object is a collection of `field: error` mappings, this is actually more useful for APIs.
 - The absence of field names within the messages themselves encourages UI design such that the error messages are placed above or underneath the actual field, as it should be anyways.
+
+## License
+
+MIT © [sgtlambda](http://github.com/sgtlambda)
+
+[![dependency Status][david-image]][david-url]
+[![devDependency Status][david-dev-image]][david-dev-url]
+
+[travis-image]: https://img.shields.io/travis/launchdeckio/v6e.svg?style=flat-square
+[travis-url]: https://travis-ci.org/launchdeckio/v6e
+
+[david-image]: https://img.shields.io/david/launchdeckio/v6e.svg?style=flat-square
+[david-url]: https://david-dm.org/launchdeckio/v6e
+
+[david-dev-image]: https://img.shields.io/david/dev/launchdeckio/v6e.svg?style=flat-square
+[david-dev-url]: https://david-dm.org/launchdeckio/v6e#info=devDependencies
+
+[npm-image]: https://img.shields.io/npm/v/v6e.svg?style=flat-square
+[npm-url]: https://www.npmjs.com/package/v6e
