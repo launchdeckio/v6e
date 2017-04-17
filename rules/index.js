@@ -6,4 +6,5 @@ module.exports = {
     notIn:    require('./notIn'),
     length:   require('./length'),
     format:   require('./format'),
+    boolean:  require('./boolean'),
 };
