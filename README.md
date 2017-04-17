@@ -5,9 +5,11 @@
 ```js
 
 const {
-          validator, all, cond, shake, flatten,
-          rules: {required, length, withIn, format}
-      } = require('v6e');
+    validator,
+    logic: {all, cond},
+    util:  {shake, flatten},
+    rules: {required, length, withIn, format},
+} = require('v6e');
 
 const hobbySchema = {
     name: required(),

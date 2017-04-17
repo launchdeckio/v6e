@@ -1,7 +1,9 @@
 const {
-          validator, all, cond, shake, flatten,
-          rules: {required, length, withIn, format}
-      } = require('.');
+    validator,
+    logic: {all, cond},
+    util:  {shake, flatten},
+    rules: {required, length, withIn, format},
+} = require('.');
 
 const hobbySchema = {
     name: required(),
