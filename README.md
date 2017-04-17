@@ -36,7 +36,7 @@ const resolution = ({minWidth, minHeight, error = 'Image too small.'}) => {
 // Because of the functional way rules are configured, you can make "templates" by using wrapping functions
 const highRes = (error = 'Image must be high-res!') => resolution({minWidth: 3200, minHeight: 2400, error});
 
-// Lets define a CONDITION (note conditions are different from rules) 
+// Lets define a CONDITION (note conditions are different from rules)
 // that checks on the photo if the "subject" equals "cat"
 const condCat = (_, {subject}) => subject === 'cat';
 
@@ -61,7 +61,7 @@ const passwordConstraint = all([
     ], {error: 'Should contain at least one digit, one lowercase letter and one uppercase letter.'}),
 ]);
 
-const minPhotos = min => length({min, minError: n => `Please upload at least ${n} photo(s).`,});
+const minPhotos = min => count({min, minError: n => `Please upload at least ${n} photo(s).`,});
 
 const userSchema = {
     username: required(),

@@ -2,7 +2,7 @@ const {
           validator,
           logic: {all, cond},
           util:  {flatten},
-          rules: {required, length, withIn, format},
+          rules: {required, length, count, withIn, format},
       } = require('.');
 
 const hobbySchema = {
@@ -44,7 +44,7 @@ const passwordConstraint = all([
     ], {error: 'Should contain at least one digit, one lowercase letter and one uppercase letter.'}),
 ]);
 
-const minPhotos = min => length({min, minError: n => `Please upload at least ${n} photo(s).`,});
+const minPhotos = min => count({min, minError: n => `Please upload at least ${n} photo(s).`,});
 
 const userSchema = {
     username: required(),
