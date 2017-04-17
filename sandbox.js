@@ -3,6 +3,19 @@ const {
           rules: {required, length, withIn, format}
       } = require('.');
 
+const photoSchema               = {
+    fileName:   format({
+        pattern: /\.(jpe?g|png)$/i,
+        error:   'Please upload a jpg or png.',
+    }),
+    subject:    withIn(['cat', 'dog']),
+    width:      required(),
+    height:     required(),
+    resolution: cond((_, {subject}) => subject === 'cat', (_, {width, height}) => {
+        return width < 800 || height < 600 ? 'Cat photos must be hi-res.' : null;
+    }),
+};
+
 const userSchema = {
 
     username: required(),
@@ -22,18 +35,7 @@ const userSchema = {
             min:      1,
             minError: n => `Please upload at least ${n} photo(s).`,
         }),
-        [{
-            fileName:   format({
-                pattern: /\.(jpe?g|png)$/i,
-                error:   'Please upload a jpg or png.',
-            }),
-            subject:    withIn(['cat', 'dog']),
-            width:      required(),
-            height:     required(),
-            resolution: cond((_, {subject}) => subject === 'cat', (_, {width, height}) => {
-                return width < 800 || height < 600 ? 'Cat photos must be hi-res.' : null;
-            }),
-        }]
+        [photoSchema]
     ]),
 };
 
