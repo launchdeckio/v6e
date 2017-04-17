@@ -18,7 +18,7 @@ $ npm install v6e
 const {
     validator,
     logic: {all, cond},
-    util:  {shake, flatten},
+    util:  {flatten},
     rules: {required, length, withIn, format},
 } = require('v6e');
 
