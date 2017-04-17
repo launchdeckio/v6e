@@ -3,7 +3,7 @@ const length = require('./../rules/length');
 it('validates both minimum as well as maximum', () => {
 
     const rule = length({min: 3, max: 5});
-    expect(rule(undefined)).toMatch('at least 3');
+    expect(rule(undefined)).toMatch('string');
     expect(rule('ah')).toMatch('at least 3');
     expect(rule('yah')).toBeNull();
     expect(rule('longstring')).toMatch('more than 5');
