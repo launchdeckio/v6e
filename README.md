@@ -5,9 +5,13 @@
 ```js
 
 const {
-          validate, all, cond, shake, flatten,
+          validator, all, cond, shake, flatten,
           rules: {required, length, withIn, format}
       } = require('v6e');
+
+const hobbySchema = {
+    name: required(),
+};
 
 const photoSchema = {
     fileName:   format({
@@ -36,6 +40,8 @@ const userSchema = {
         ], {error: 'Should contain at least one digit, one lowercase letter and one uppercase letter.'}),
     ]),
 
+    hobbies: [hobbySchema],
+
     photos: all([
         length({
             min:      1,
@@ -45,9 +51,14 @@ const userSchema = {
     ]),
 };
 
+const validate = validator(userSchema);
+
 const input = {
     username: 'sgtlambda',
     password: 'hunter2',
+    hobbies:  [{
+        name: 'nitpicking',
+    }],
     photos:   [{
         fileName: 'funny.jpg',
         subject:  'cat',
@@ -61,7 +72,7 @@ const input = {
     }]
 };
 
-validate(userSchema, input).then(shake).then(flatten).then(console.log);
+validate(input).then(shake).then(flatten).then(console.log);
 
 // { 
 //   'password': 'Must be at least 8 characters long',

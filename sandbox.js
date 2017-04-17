@@ -3,6 +3,10 @@ const {
           rules: {required, length, withIn, format}
       } = require('.');
 
+const hobbySchema = {
+    name: required(),
+};
+
 const photoSchema = {
     fileName:   format({
         pattern: /\.(jpe?g|png)$/i,
@@ -30,6 +34,8 @@ const userSchema = {
         ], {error: 'Should contain at least one digit, one lowercase letter and one uppercase letter.'}),
     ]),
 
+    hobbies: [hobbySchema],
+
     photos: all([
         length({
             min:      1,
@@ -44,6 +50,9 @@ const validate = validator(userSchema);
 const input = {
     username: 'sgtlambda',
     password: 'hunter2',
+    hobbies:  [{
+        name: 'nitpicking',
+    }],
     photos:   [{
         fileName: 'funny.jpg',
         subject:  'cat',
