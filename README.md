@@ -4,16 +4,15 @@
 
 ```js
 
-const {factory, rules: {required}} = require('v6e');
+const {validate, all, rules: {required, length}} = require('v6e');
 
-const validate = factory({
-    username: [
-        required()
-    ],
-    password: [
-        [pwd => pwd === 'hunter2', 'Your password must be "hunter2".']
-    ],
-});
+const schema = {
+    username: required(),
+    password: all([
+        required(),
+        length({min: 8}),
+    ]),
+};
 
 validate({password: 'hunter2'});
 
@@ -26,9 +25,11 @@ validate({password: 'hunter2'});
 - "Custom validators" that have to be registered on some singleton are awkward.
 - Schemas should be declarative, readable and flexibly embeddable. 
 - Asynchronous rules should be supported by default and fully intermixable with synchronous rules.
+- The purely functional nature encourages use of higher-order validators rather than some vaguely defined convention.
 
 ### Todo
 
-- Fluent async support
 - Implement more built-in rules
+  - Length
+  - Format / regex
 - Add "strict" mode where errors will also be raised for fields that aren't explicitly specified in the ruleset.
