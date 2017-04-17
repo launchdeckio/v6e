@@ -2,15 +2,17 @@ const validate = require('../');
 
 const {rules: {required}} = validate;
 
+const test = (schema, fields, expected) => validate(schema, fields).then(result => {
+    return expect(result).toEqual(expected);
+});
+
 it('returns an object of errors for values that did not pass validation', () => {
 
-    const schema = {
+    const userSchema = {
         username: required(),
     };
 
-    return validate(schema, {}).then(result => {
-        expect(result).toEqual({username: 'This field is required.'})
-    });
+    return test(userSchema, {}, {username: 'This field is required.'});
 });
 
 // it('returns an object of errors for values that did not pass validation', () => {
