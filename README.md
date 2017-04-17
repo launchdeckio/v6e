@@ -100,7 +100,3 @@ validate(input).then(flatten).then(console.log);
 
 - The errors object is a collection of `field: error` mappings, this is actually more useful for APIs.
 - The absence of field names within the messages themselves encourages UI design such that the error messages are placed above or underneath the actual field, as it should be anyways.
-
-### Todo
-
-- Add "strict" mode where errors will also be raised for fields that aren't explicitly specified in the ruleset.
