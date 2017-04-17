@@ -21,6 +21,12 @@ validate({password: 'hunter2'});
 
 ```
 
+### Why?
+
+- "Custom validators" that have to be registered on some singleton are awkward.
+- Schemas should be declarative, readable and flexibly embeddable. 
+- Asynchronous rules should be supported by default and fully intermixable with synchronous rules.
+
 ### Todo
 
 - Fluent async support
