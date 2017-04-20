@@ -12,9 +12,10 @@ validate.util = {
 };
 
 validate.logic = {
-    all:  require('./lib/logic/all'),
-    or:   require('./lib/logic/or'),
-    cond: require('./lib/logic/cond'),
+    all:   require('./lib/logic/all'),
+    or:    require('./lib/logic/or'),
+    cond:  require('./lib/logic/cond'),
+    maybe: require('./lib/logic/maybe'),
 };
 validate.rules = require('./rules');
 
