@@ -8,4 +8,5 @@ module.exports = {
     count:    require('./count'),
     format:   require('./format'),
     boolean:  require('./boolean'),
+    string:   require('./string'),
 };
