@@ -1199,6 +1199,10 @@ isarray@1.0.0, isarray@^1.0.0, isarray@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
 
+isemail@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/isemail/-/isemail-2.2.1.tgz#0353d3d9a62951080c262c2aa0a42b8ea8e9e2a6"
+
 isexe@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"

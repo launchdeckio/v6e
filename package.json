@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "bluebird": "^3.5.0",
+    "isemail": "^2.2.1",
     "lodash": "^4.17.4",
     "p-try": "^1.0.0"
   },
