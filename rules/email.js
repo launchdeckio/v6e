@@ -1,6 +1,6 @@
 'use strict';
 
-const {validate} = require('isemail');
+const {validate} = require('email-validator');
 
 /**
  * Email address validator
