@@ -7,6 +7,4 @@ const {isString} = require('lodash');
  *
  * @param error
  */
-module.exports = (error = 'Must be a string') => {
-    return val => isString(val) ? null : error;
-};
+module.exports = ({error = 'Must be a string'} = {}) => val => isString(val) ? null : error;

@@ -5,6 +5,4 @@
  *
  * @param error
  */
-module.exports = (error = 'Must be a boolean') => {
-    return val => (val === true || val === false) ? null : error;
-};
+module.exports = ({error = 'Must be a boolean'} = {}) => val => (val === true || val === false) ? null : error;
