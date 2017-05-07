@@ -9,4 +9,5 @@ module.exports = {
     format:   require('./format'),
     boolean:  require('./boolean'),
     string:   require('./string'),
+    email:    require('./email'),
 };
