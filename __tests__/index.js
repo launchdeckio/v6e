@@ -1,4 +1,4 @@
-const validate = require('../');
+const validate = require('../lib');
 
 const {rules: {required}} = validate;
 

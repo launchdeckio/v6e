@@ -2,10 +2,12 @@
   "name": "v6e",
   "version": "0.4.3",
   "description": "Isomorphic functional validation",
-  "main": "index.js",
+  "main": "dist/index.js",
   "author": "JM Versteeg <janmerijnversteeg@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "build": "babel lib --out-dir dist",
+    "prepublish": "npm run build",
     "pretest": "eslint lib",
     "test": "jest",
     "test:watch": "jest --watch"
@@ -16,6 +18,8 @@
     "lodash": "^4.17.4"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
     "eslint": "^4.3.0",
     "jest": "^20.0.4"
   }

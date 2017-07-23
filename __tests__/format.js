@@ -1,4 +1,4 @@
-const format = require('./../rules/format');
+const format = require('../lib/rules/format');
 
 it('should check whether the given value matches the pattern', () => {
 

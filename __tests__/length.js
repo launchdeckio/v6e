@@ -1,4 +1,4 @@
-const length = require('./../rules/length');
+const length = require('../lib/rules/length');
 
 it('validates both minimum as well as maximum', () => {
 
