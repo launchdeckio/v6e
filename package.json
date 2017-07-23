@@ -1,6 +1,6 @@
 {
   "name": "v6e",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Isomorphic functional validation",
   "main": "index.js",
   "author": "JM Versteeg <janmerijnversteeg@gmail.com>",
