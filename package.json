@@ -13,7 +13,6 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "babel-polyfill": "^6.23.0",
     "bluebird": "^3.5.0",
     "email-validator": "^1.1.1",
     "lodash": "^4.17.4"
