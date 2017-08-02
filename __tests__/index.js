@@ -1,10 +1,8 @@
 const validate = require('../lib');
 
-const {rules: {required}} = validate;
+const test = require('./support/testValidation')();
 
-const test = (schema, fields, expected) => validate(schema, fields).then(result => {
-    return expect(result).toEqual(expected);
-});
+const {rules: {required}} = validate;
 
 it('returns an object of errors for values that did not pass validation', () => {
 

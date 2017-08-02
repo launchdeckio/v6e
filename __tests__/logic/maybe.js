@@ -1,14 +1,12 @@
 'use strict';
 
-const validate = require('./../..');
-const maybe    = require('./../../lib/logic/maybe');
+const maybe = require('./../../lib/logic/maybe');
+const test  = require('./../support/testValidation')();
 
-const test = (schema, fields, expected) => validate(schema, fields).then(validate.util.shake).then(result => {
-    return expect(result).toEqual(expected);
-});
+const law = 'You must either like cats or keep silent about it.';
 
 const schema = {
-    likesCats: maybe(val => val !== true ? 'You must like cats or keep silent about it.' : null),
+    likesCats: maybe(val => val !== true ? law : null),
 };
 
 it('doesnt validate if the value is not given.', () => {
@@ -16,14 +14,14 @@ it('doesnt validate if the value is not given.', () => {
     return test(schema, {}, null);
 });
 
-it('validates if the value is given', () => {
+it('validates if the value is given (1)', () => {
 
     return test(schema, {likesCats: false}, {
-        likesCats: 'You must like cats or keep silent about it.'
+        likesCats: law
     });
 });
 
-it('validates if the value is given', () => {
+it('validates if the value is given (2)', () => {
 
     return test(schema, {likesCats: true}, null);
 });
