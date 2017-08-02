@@ -22,5 +22,11 @@
     "babel-preset-env": "^1.6.0",
     "eslint": "^4.3.0",
     "jest": "^20.0.4"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/support/"
+    ]
   }
 }
