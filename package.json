@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build": "babel lib --out-dir dist",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "pretest": "eslint lib",
     "test": "jest",
     "test:watch": "jest --watch"
