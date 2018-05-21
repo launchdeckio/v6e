@@ -13,5 +13,4 @@ it('checks whether one field matches the value of another field', () => {
     expect(confirmPasswordRule('hoihoi', {
         password: 'heyhey',
     })).toMatch(/must be the same/i);
-    // return null;
 });
